@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Free Wi-Fi | The Neighborhood Kitchen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EC;
+    --white: #FFFFFF;
+    --terracotta: #C45C26;
+    --terracotta-dark: #A84A1E;
+    --olive: #3F5220;
+    --charcoal: #2A2418;
+    --muted: #6E6256;
+    --border: #E5DCD0;
+    --shadow: 0 24px 48px -16px rgba(42, 36, 24, 0.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    min-height: 100dvh;
+  }
+  .top-bar {
+    background: var(--charcoal);
+    color: white;
+    text-align: center;
+    padding: 0.7rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .hero {
+    position: relative;
+    height: 38vh;
+    min-height: 220px;
+    background: linear-gradient(180deg, rgba(20,16,10,0.25) 0%, rgba(20,16,10,0.45) 100%),
+                url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1400&q=80') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  .logo-wrap {
+    background: rgba(255,255,255,0.97);
+    border-radius: 50%;
+    width: 132px;
+    height: 132px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    padding: 0.5rem;
+  }
+  .logo-wrap .eyebrow {
+    font-size: 0.55rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--olive);
+    font-weight: 600;
+  }
+  .logo-wrap .name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--charcoal);
+    margin: 0.15rem 0;
+  }
+  .logo-wrap .name em { font-style: italic; font-weight: 500; }
+  .logo-wrap .tag {
+    font-size: 0.5rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .sheet {
+    background: var(--white);
+    margin: -2.5rem 1rem 2rem;
+    border-radius: 1.6rem 1.6rem 1.2rem 1.2rem;
+    padding: 1.6rem 1.3rem 1.5rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 2;
+  }
+  .sheet h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.75rem;
+    text-align: center;
+    margin-bottom: 0.25rem;
+  }
+  .sheet .lead {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.3rem;
+  }
+  .fb-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: #1877F2;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 0.9rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  .or {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    margin: 0.6rem 0 1rem;
+    position: relative;
+  }
+  .or::before, .or::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 38%;
+    height: 1px;
+    background: var(--border);
+  }
+  .or::before { left: 0; }
+  .or::after { right: 0; }
+  form { display: flex; flex-direction: column; gap: 0.75rem; }
+  input[type="text"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 0.8rem;
+    font-family: inherit;
+    font-size: 1rem;
+    background: #FFFEFC;
+  }
+  input:focus {
+    outline: none;
+    border-color: var(--terracotta);
+    box-shadow: 0 0 0 3px rgba(196,92,38,0.12);
+  }
+  .phone-row { display: flex; gap: 0.5rem; }
+  .phone-row select {
+    width: 110px;
+    padding: 0.9rem 0.6rem;
+    border: 1.5px solid var(--border);
+    border-radius: 0.8rem;
+    font-family: inherit;
+    background: white;
+  }
+  .phone-row input { flex: 1; }
+  .consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .consent input { margin-top: 0.15rem; accent-color: var(--terracotta); }
+  .terms {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: center;
+    margin: 0.4rem 0;
+  }
+  .terms a { color: var(--terracotta); }
+  button[type="submit"] {
+    background: linear-gradient(180deg, #2F8F4E 0%, #247A40 100%);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    margin-top: 0.3rem;
+    box-shadow: 0 8px 18px -6px rgba(47,143,78,0.5);
+  }
+  .success {
+    display: none;
+    text-align: center;
+    padding: 1.2rem 0.5rem;
+  }
+  .success.show { display: block; }
+  .success h2 {
+    font-family: 'Fraunces', serif;
+    color: var(--olive);
+    margin-bottom: 0.3rem;
+  }
+  footer {
+    text-align: center;
+    padding: 0 1.5rem 2rem;
+    font-size: 0.75rem;
+    color: #9A8B7A;
+  }
+  footer a { color: var(--terracotta); text-decoration: none; }
+  @media (min-width: 480px) {
+    .sheet { max-width: 420px; margin-left: auto; margin-right: auto; }
+  }
+</style>
+</head>
+<body>
+  <div class="top-bar">
+    WELCOME TO THE NEIGHBORHOOD KITCHEN. GRAB OUR FREE WI-FI AND BE THE FIRST TO HEAR ABOUT SPECIALS AND EVENTS.
+  </div>
+
+  <div class="hero">
+    <div class="logo-wrap">
+      <div class="eyebrow">Good Food · Good People</div>
+      <div class="name">THE<br>NEIGHBORHOOD<br><em>Kitchen</em></div>
+      <div class="tag">Made with Love · Served Daily</div>
+    </div>
+  </div>
+
+  <div class="sheet" id="sheet">
+    <h1>Free Wi-Fi</h1>
+    <p class="lead">Connect and stay in the loop on specials & events.</p>
+
+    <button class="fb-btn" type="button">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+      Log in with Facebook
+    </button>
+
+    <div class="or">OR</div>
+
+    <form id="wifiForm">
+      <input type="email" name="email" placeholder="Enter email to Connect to Wi-Fi (Required)" required autocomplete="email">
+      <input type="text" name="firstName" placeholder="First Name" autocomplete="given-name">
+      <div class="phone-row">
+        <select name="countryCode" aria-label="Country Code">
+          <option value="+1" selected>🇺🇸 +1</option>
+          <option value="+44">🇬🇧 +44</option>
+          <option value="+52">🇲🇽 +52</option>
+        </select>
+        <input type="tel" name="phone" placeholder="850 555-1234" autocomplete="tel">
+      </div>
+      <label class="consent">
+        <input type="checkbox" name="smsConsent">
+        <span>By providing your phone number you agree to receive automated text messages from or on behalf of The Neighborhood Kitchen, Bloom, and its Partners. Message frequency varies. Message and data rates may apply. Consent to such communications is not a condition of any purchase.</span>
+      </label>
+      <p class="terms">By connecting to this Wi-Fi network, you are agreeing to our <a href="#">Terms of Service</a>.</p>
+      <button type="submit">ACCEPT & CONNECT</button>
+    </form>
+
+    <div class="success" id="success">
+      <h2>You're connected.</h2>
+      <p>Enjoy the Wi-Fi — and look for specials in your inbox soon.</p>
+    </div>
+  </div>
+
+  <footer>
+    From our friends at Bloom Wi-Fi<br><br>
+    The Neighborhood Kitchen · 1301 Winter Springs Blvd<br>
+    <a href="https://tnkitchen.com" target="_blank">tnkitchen.com</a>
+  </footer>
+
+<script>
+  document.getElementById('wifiForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const data = Object.fromEntries(fd.entries());
+    data.source = 'guest-wifi-demo';
+    data.ts = new Date().toISOString();
+    console.log('Captured:', data);
+    document.getElementById('wifiForm').style.display = 'none';
+    document.getElementById('success').classList.add('show');
+  });
+</script>
+</body>
+</html>
